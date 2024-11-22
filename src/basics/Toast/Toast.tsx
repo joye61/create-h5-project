@@ -1,4 +1,4 @@
-import style from "./index.module.css";
+import style from "./Toast.module.css";
 import classNames from "classnames";
 import { useEffect, useState } from "react";
 

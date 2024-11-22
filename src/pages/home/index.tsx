@@ -1,8 +1,10 @@
-import { useEffect } from "react";
-import { showLoading } from "src/basics/Loading";
-import { Indicator } from "src/basics/Loading/Indicator";
-import { Loading } from "src/basics/Loading/Loading";
+// import { useEffect } from "react";
+// import { showLoading } from "src/basics/Loading";
+// import { Indicator } from "src/basics/Loading/Indicator";
+// import { Loading } from "src/basics/Loading/Loading";
+import { Clickable } from "src/basics";
 import { showToast } from "src/basics/Toast";
+import style from "./index.module.css";
 
 export default () => {
   return (
@@ -21,6 +23,9 @@ export default () => {
       <Indicator color="black" size="small" />
       <Loading message="数据加载中..." /> */}
       {/* <Loading message="数据加载中" /> */}
+      <Clickable block={false} className={style.btn} flex="row-center">
+        测试按钮
+      </Clickable>
     </div>
   );
 };

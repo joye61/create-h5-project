@@ -1,7 +1,7 @@
 import style from "./Loading.module.css";
 import { Overlay } from "../Overlay";
-import { ColStart } from "../Flex";
 import { Indicator } from "./Indicator";
+import { ColStart } from "../Flex/Col";
 
 export interface LoadingProps {
   message?: string;
