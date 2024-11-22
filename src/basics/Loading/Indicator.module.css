@@ -1,0 +1,141 @@
+@keyframes IndicatorAnimation {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.container {
+  position: relative;
+  font-size: 0;
+  > div {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: center center;
+    > div {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      border-radius: 2px;
+      transform: translateX(-50%);
+      animation-name: IndicatorAnimation;
+      animation-duration: 600ms;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+  }
+}
+
+.big {
+  width: 28px;
+  height: 28px;
+  > div > div {
+    width: 2px;
+    height: 10px;
+  }
+}
+.small {
+  width: 20px;
+  height: 20px;
+  > div > div {
+    width: 2px;
+    height: 7px;
+  }
+}
+
+.white {
+  background-color: #fff;
+}
+.black {
+  background-color: #333;
+}
+
+.item0 {
+  transform: rotate(0);
+  > div {
+    animation-delay: 0;
+    opacity: 1;
+  }
+}
+.item1 {
+  transform: rotate(30deg);
+  > div {
+    animation-delay: 50ms;
+    opacity: 0.9166666666666666;
+  }
+}
+.item2 {
+  transform: rotate(60deg);
+  > div {
+    animation-delay: 100ms;
+    opacity: 0.8333333333333334;
+  }
+}
+.item3 {
+  transform: rotate(90deg);
+  > div {
+    animation-delay: 150ms;
+    opacity: 0.75;
+  }
+}
+.item4 {
+  transform: rotate(120deg);
+  > div {
+    animation-delay: 200ms;
+    opacity: 0.6666666666666667;
+  }
+}
+.item5 {
+  transform: rotate(150deg);
+  > div {
+    animation-delay: 250ms;
+    opacity: 0.5833333333333333;
+  }
+}
+.item6 {
+  transform: rotate(180deg);
+  > div {
+    animation-delay: 300ms;
+    opacity: 0.5;
+  }
+}
+.item7 {
+  transform: rotate(210deg);
+  > div {
+    animation-delay: 350ms;
+    opacity: 0.41666666666666663;
+  }
+}
+.item8 {
+  transform: rotate(240deg);
+  > div {
+    animation-delay: 400ms;
+    opacity: 0.33333333333333337;
+  }
+}
+.item9 {
+  transform: rotate(270deg);
+  > div {
+    animation-delay: 450ms;
+    opacity: 0.25;
+  }
+}
+.item10 {
+  transform: rotate(300deg);
+  > div {
+    animation-delay: 500ms;
+    opacity: 0.16666666666666663;
+  }
+}
+.item11 {
+  transform: rotate(330deg);
+  > div {
+    animation-delay: 550ms;
+    opacity: 0.08333333333333337;
+  }
+}
