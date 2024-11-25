@@ -2,11 +2,12 @@ import { useEffect } from "react";
 import { showLoading } from "src/basics/Loading";
 // import { Indicator } from "src/basics/Loading/Indicator";
 // import { Loading } from "src/basics/Loading/Loading";
-import { Clickable, Marquee } from "src/basics";
+import { Clickable, Indicator, Marquee } from "src/basics";
 // import { showToast } from "src/basics/Toast";
 import style from "./index.module.css";
 import { Countdown } from "src/basics/Countdown";
-// import { Dialog } from "src/basics/Dialog/Dialog";
+import { Loading } from "src/basics/Loading/Loading";
+// import { Dialog } from 'src/basics/Dialog/Dialog';
 
 export default () => {
   useEffect(() => {
@@ -32,16 +33,18 @@ export default () => {
       >
         按钮测试
       </button>
-      {/* <Indicator color="black" />
+      <Indicator color="black" />
       <Indicator color="black" size="small" />
-      <Loading message="数据加载中..." /> */}
-      {/* <Loading message="数据加载中" /> */}
+      <Loading message="数据加载中..." />
       <Clickable block={false} className={style.btn} flex="row-center">
         测试按钮
       </Clickable>
       {/* <Dialog><div className={style.dialog}/></Dialog> */}
       <Countdown remain={110} />
-      <Marquee height=".4rem" items={["跑马灯效果测试0", "跑马灯效果测试1", "跑马灯效果测试2"]} />
+      <Marquee
+        height=".4rem"
+        items={["跑马灯效果测试0", "跑马灯效果测试1", "跑马灯效果测试2"]}
+      />
     </div>
   );
 };

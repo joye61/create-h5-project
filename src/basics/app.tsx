@@ -14,7 +14,7 @@ export interface CreateAppOption extends ContainerProps {
   entry?: string;
   // 挂载点
   target?: string | HTMLElement;
-  // 渲染加载中的过渡页面
+  // 渲染加载中的过渡页面，这个过程主要用来加载数据
   renderLoading?: () => Promise<React.ReactNode> | React.ReactNode;
   // 如果页面没找到，渲染404页面
   render404?: () => Promise<React.ReactNode> | React.ReactNode;
@@ -69,6 +69,7 @@ export async function createApp(option?: CreateAppOption) {
       }
 
       // 渲染加载中页面
+      setPage(null);
       if (typeof option.renderLoading === "function") {
         const loadingPage = await option.renderLoading();
         setPage(loadingPage);

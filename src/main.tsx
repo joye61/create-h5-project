@@ -1,7 +1,7 @@
-import { createApp } from "./basics/app";
+import { createApp } from "./basics";
 
 createApp({
   renderLoading() {
-    return "加载中页面...";
+    return "页面加载中...";
   },
 });

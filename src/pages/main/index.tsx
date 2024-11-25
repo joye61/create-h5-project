@@ -1,3 +1,3 @@
 export const MainPage = () => {
-  return "MainPage loaded";
+  return "/main 页面被加载";
 };
