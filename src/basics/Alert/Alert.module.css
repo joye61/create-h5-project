@@ -1,0 +1,54 @@
+.container {
+  background-color: #fff;
+  width: 80vw;
+  line-height: 1;
+  border-radius: 10px;
+  > div:nth-child(2) {
+    border-top: 1px solid #f0f0f0;
+  }
+}
+
+.containerInvert {
+  filter: invert(1);
+}
+
+.title {
+  font-size: 18px;
+  padding: 20px 15px 0;
+  color: #333;
+}
+.content {
+  font-size: 14px;
+  margin: 17.2px 15px 15px;
+  color: #666;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.confirm {
+  color: blue;
+}
+
+.cancel {
+  z-index: 2;
+  color: #666;
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 1px;
+    background-color: #f0f0f0;
+    right: -0.5px;
+    top: 0;
+    height: 100%;
+  }
+}
+
+.cancel,
+.confirm {
+  position: relative;
+  flex-basis: 0;
+  flex-grow: 1;
+  font-size: 16px;
+  padding: 16px 0;
+}

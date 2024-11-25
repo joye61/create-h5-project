@@ -31,7 +31,7 @@ export interface CreateAppOption extends ContainerProps {
 export async function createApp(option?: CreateAppOption) {
   option = option ?? {};
   const defaultConfig: Partial<CreateAppOption> = {
-    entry: "home",
+    entry: "/home",
     target: "#root",
     mode: "history",
   };

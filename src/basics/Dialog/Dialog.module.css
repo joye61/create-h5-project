@@ -1,0 +1,113 @@
+@keyframes MaskShow {
+  from {
+    background-color: transparent;
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+@keyframes MaskHide {
+  from {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  to {
+    background-color: transparent;
+  }
+}
+@keyframes TopShow {
+  from {
+    transform: translate(-50%, -100%);
+  }
+  to {
+    transform: translate(-50%, 0);
+  }
+}
+@keyframes TopHide {
+  from {
+    transform: translate(-50%, 0);
+  }
+  to {
+    transform: translate(-50%, -100%);
+  }
+}
+@keyframes MiddleShow {
+  from {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+}
+@keyframes MiddleHide {
+  from {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+  }
+}
+@keyframes BottomShow {
+  from {
+    transform: translate(-50%, 100%);
+  }
+  to {
+    transform: translate(-50%, 0);
+  }
+}
+@keyframes BottomHide {
+  from {
+    transform: translate(-50%, 0);
+  }
+  to {
+    transform: translate(-50%, 100%);
+  }
+}
+
+.container {
+  > div {
+    position: absolute;
+  }
+}
+.containerShow {
+  animation: MaskShow 300ms ease both;
+}
+.containerHide {
+  animation: MaskHide 300ms ease both;
+}
+.top {
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.topShow {
+  animation: TopShow 300ms ease both;
+}
+.topHide {
+  animation: TopHide 300ms ease both;
+}
+.middle {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+}
+.middleShow {
+  animation: MiddleShow 300ms ease both;
+}
+.middleHide {
+  animation: MiddleHide 300ms ease both;
+}
+.bottom {
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.bottomShow {
+  animation: BottomShow 300ms ease both;
+}
+.bottomHide {
+  animation: BottomHide 300ms ease both;
+}

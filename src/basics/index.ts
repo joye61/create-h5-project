@@ -40,7 +40,7 @@ export {
   waitUntil,
   tick,
 } from "./functions";
-export { ago, Countdown, createCalendar } from "./time";
+export { ago, CountdownManager, createCalendar } from "./time";
 
 // 钩子函数
 export { useInterval, useTick, useWindowResize } from "./hooks";

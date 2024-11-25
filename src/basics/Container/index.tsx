@@ -1,5 +1,5 @@
 import "./index.css";
-import { useWindowResize } from "../hooks";
+import { useViewport, useWindowResize } from "../hooks";
 import { useEffect, useRef, useState } from "react";
 
 export interface ContainerProps {
@@ -11,6 +11,8 @@ export function Container(props: ContainerProps) {
   const { designWidth = 750, children } = props;
   const [winWidth, setWinWidth] = useState<number>(window.innerWidth);
   const styleRef = useRef<HTMLStyleElement | null>(null);
+
+  useViewport();
 
   useEffect(() => {
     styleRef.current = document.createElement("style");

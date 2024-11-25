@@ -106,7 +106,7 @@ export type CountdownValue = {
 };
 export type UpdateCallback = (value: CountdownValue) => void;
 
-export interface CountdownOption {
+export interface CountdownManagerOption {
   // 倒计时剩余时间
   remain?: number | string;
   // 更新时触发
@@ -120,7 +120,7 @@ export interface CountdownOption {
 /**
  * 倒计时类
  */
-export class Countdown {
+export class CountdownManager {
   /**
    * 倒计时的剩余时间，单位为秒
    */
@@ -143,7 +143,7 @@ export class Countdown {
   // 结束时触发调用
   _onEnd?: () => void;
 
-  constructor(option: CountdownOption) {
+  constructor(option: CountdownManagerOption) {
     if (typeof option.remain === "number" && option.remain >= 0) {
       this.total = this.remain = option.remain;
     }
