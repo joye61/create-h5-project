@@ -107,7 +107,7 @@ export type CountdownValue = {
 export type UpdateCallback = (value: CountdownValue) => void;
 
 export interface CountdownManagerOption {
-  // 倒计时剩余时间
+  // 倒计时剩余时间，单位为秒
   remain?: number | string;
   // 更新时触发
   onUpdate?: UpdateCallback;

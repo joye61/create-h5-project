@@ -1,0 +1,24 @@
+.container {
+  background-color: #f0f0f0;
+  overflow: hidden;
+  position: relative;
+}
+
+.box {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  font-size: 0;
+  > div {
+    font-size: initial;
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.withTransiton {
+  transition: transform 500ms ease-in-out;
+}

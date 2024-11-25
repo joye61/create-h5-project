@@ -17,7 +17,16 @@ const __local = {
  *
  * 也支持完整URL:
  *  http://example.com/a/b/c => http://example.com/a/b/c
- *
+ * 
+ * 所有的映射全部配置在.env环境变量中，不同的环境各自配置，
+ * 且配置项格式固定，统一大写 VITE_HOST_${ALIAS}，如：
+ * 
+ *  VITE_HOST_DEFAULT="http://default.com"  
+ *    /a/b/c => http://default.com/a/b/c
+ * 
+ *  VITE_HOST_XUECHE="http://xueche.com"
+ *    xueche@/a/b/c => http://xueche.com/a/b/c
+ *  
  * @param shortUrl
  * @param seperator
  * @returns

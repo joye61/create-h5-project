@@ -20,11 +20,13 @@ export { ColEvenly } from "./Flex/Col";
 
 // 常用组件
 export { Clickable } from "./Clickable";
+export { Countdown } from "./Countdown";
 
 // 不常用组件，一般不直接使用
 export { Indicator } from "./Loading/Indicator";
 export { Overlay } from "./Overlay";
 export { Container } from "./Container";
+export { Marquee } from "./Marquee";
 
 // 功能函数
 export { createApp } from "./app";

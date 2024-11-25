@@ -18,6 +18,7 @@ export interface AlertProps
   contentClass?: string;
   cancelClass?: string;
   confirmClass?: string;
+  // 是否反转当前组件的颜色，由滤镜实现
   colorInvert?: boolean;
 }
 

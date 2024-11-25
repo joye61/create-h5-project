@@ -188,3 +188,25 @@ export async function waitUntil(
     });
   });
 }
+
+/**
+ * 标准化长度值单位
+ * @param value 长度值
+ * @param defaultUnit 默认长度值单位 px
+ */
+export function normalizeCssUnit(value?: number | string, defaultUnit = "px") {
+  if (typeof value === "number") {
+    return value + defaultUnit;
+  }
+  const CSSValueReg = /^((?:\-)?(?:\d+\.?|\.\d+|\d+\.\d+))([a-zA-Z%]*)$/;
+  if (typeof value === "string") {
+    const result = value.match(CSSValueReg);
+    if (Array.isArray(result)) {
+      return result[2]
+        ? parseFloat(value) + result[2]
+        : parseFloat(value) + defaultUnit;
+    }
+  }
+
+  return value;
+}
