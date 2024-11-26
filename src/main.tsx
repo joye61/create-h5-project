@@ -1,6 +1,6 @@
 import { createApp } from "./basics";
 
-// 采用完全默认配置
+// 页面数据加载时显示白屏
 createApp();
 
 // 页面数据加载时显示默认加载页
