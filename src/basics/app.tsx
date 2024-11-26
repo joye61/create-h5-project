@@ -3,6 +3,7 @@ import { Container, ContainerProps } from "./Container";
 import { createRoot } from "react-dom/client";
 import { nextTick, normalize } from "./functions";
 import { setHistory, history } from "./history";
+import { Skeleton } from "./Skeleton";
 
 /**
  * createApp 参数
@@ -15,7 +16,7 @@ export interface CreateAppOption extends ContainerProps {
   // 挂载点
   target?: string | HTMLElement;
   // 渲染加载中的过渡页面，这个过程主要用来加载数据
-  renderLoading?: () => Promise<React.ReactNode> | React.ReactNode;
+  renderLoading?: (() => Promise<React.ReactNode> | React.ReactNode) | boolean;
   // 如果页面没找到，渲染404页面
   render404?: () => Promise<React.ReactNode> | React.ReactNode;
   // 渲染页面时可以进一步返回包裹组件
@@ -34,6 +35,7 @@ export async function createApp(option?: CreateAppOption) {
     entry: "/home",
     target: "#root",
     mode: "history",
+    renderLoading: false,
   };
   option = {
     ...defaultConfig,
@@ -70,7 +72,10 @@ export async function createApp(option?: CreateAppOption) {
 
       // 渲染加载中页面
       setPage(null);
-      if (typeof option.renderLoading === "function") {
+      if (typeof option.renderLoading === "boolean" && option.renderLoading) {
+        setPage(<Skeleton />);
+        await nextTick();
+      } else if (typeof option.renderLoading === "function") {
         const loadingPage = await option.renderLoading();
         setPage(loadingPage);
         await nextTick();
