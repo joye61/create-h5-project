@@ -6,17 +6,16 @@ export function showDialog(
   option?: Omit<DialogProps, "children" | "open" | "onClose">
 ) {
   const portal = createPortalElement();
-  portal.mount(<Dialog {...option}>{content}</Dialog>);
+  const onClose = () => portal.unmount();
+  portal.mount(
+    <Dialog {...option} onClose={onClose}>
+      {content}
+    </Dialog>
+  );
 
   return () => {
     portal.mount(
-      <Dialog
-        open={false}
-        {...option}
-        onClose={() => {
-          portal.unmount();
-        }}
-      >
+      <Dialog open={false} {...option} onClose={onClose}>
         {content}
       </Dialog>
     );

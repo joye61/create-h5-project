@@ -2,6 +2,7 @@
   background-color: #f0f0f0;
   overflow: hidden;
   position: relative;
+  height: 100%;
 }
 
 .box {

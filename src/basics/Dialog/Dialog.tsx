@@ -14,7 +14,7 @@ export function Dialog(props: React.PropsWithChildren<DialogProps>) {
   const {
     open = true,
     position = "middle",
-    maskClosable = true,
+    maskClosable = false,
     children,
     className,
     onClose,

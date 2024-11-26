@@ -1,5 +1,5 @@
-import classNames from "classnames";
 import style from "./index.module.css";
+import classNames from "classnames";
 import { useViewport } from "../hooks";
 
 export interface SafeAreaProps extends React.HTMLProps<HTMLDivElement> {

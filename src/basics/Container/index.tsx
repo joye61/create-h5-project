@@ -2,21 +2,40 @@ import "./index.css";
 import { useViewport, useWindowResize } from "../hooks";
 import { useEffect, useRef, useState } from "react";
 
+export const DefaultDesignWidth = 750;
+
 export interface ContainerProps {
+  // 设计稿尺寸，默认750
   designWidth?: number;
-  children?: React.ReactNode;
+  // 最大文档宽度，默认576
+  maxWidth?: number;
+  // 最小文档宽度，默认312
+  minWidth?: number;
 }
 
-export function Container(props: ContainerProps) {
-  const { designWidth = 750, children } = props;
-  const [winWidth, setWinWidth] = useState<number>(window.innerWidth);
+export function Container(props: React.PropsWithChildren<ContainerProps>) {
+  const {
+    designWidth = DefaultDesignWidth,
+    maxWidth = 576,
+    minWidth = 312,
+    children,
+  } = props;
+
+  const [docWidth, setDocWidth] = useState<number>(
+    Math.min(window.innerWidth, maxWidth)
+  );
   const styleRef = useRef<HTMLStyleElement | null>(null);
 
   useViewport();
 
   useEffect(() => {
     styleRef.current = document.createElement("style");
-    document.head.appendChild(styleRef.current);
+    const first = document.querySelector("style");
+    if (first instanceof HTMLStyleElement) {
+      first.before(styleRef.current);
+    } else {
+      document.head.appendChild(styleRef.current);
+    }
 
     return () => {
       styleRef.current?.remove();
@@ -25,25 +44,50 @@ export function Container(props: ContainerProps) {
   }, []);
 
   useWindowResize(() => {
-    setWinWidth(window.innerWidth);
+    let width = window.innerWidth;
+    if (width >= maxWidth) {
+      width = maxWidth;
+    } else if (width <= minWidth) {
+      width = minWidth;
+    }
+    setDocWidth(width);
   });
 
   // 自适应逻辑核心
   useEffect(() => {
-    const base = (winWidth * 100) / designWidth;
+    const unit = docWidth / DefaultDesignWidth;
+    const base = (docWidth * 100) / designWidth;
 
     const element = styleRef.current;
     if (element) {
       const rulesLen = element.sheet?.cssRules.length;
       if (rulesLen && rulesLen > 0) {
         for (let i = 0; i < rulesLen; i++) {
-          element.sheet?.deleteRule(i);
+          element.sheet?.deleteRule(0);
         }
       }
-      const rule = `html{font-size:${base}px}`;
-      element.sheet?.insertRule(rule);
+      const htmlRule = `
+      html{
+        --unit: ${unit}px;
+        --wdoc: ${docWidth}px;
+        font-size: ${base}px;
+        -webkit-text-size-adjust: none;
+        text-size-adjust: none;
+        touch-action: manipulation;
+      }
+      `;
+      const bodyRule = `
+      body{
+        max-width: ${maxWidth}px;
+        min-width: ${minWidth}px;
+        font-size: initial;
+        margin: 0 auto;
+      } 
+      `;
+      element.sheet?.insertRule(htmlRule);
+      element.sheet?.insertRule(bodyRule);
     }
-  }, [winWidth, designWidth]);
+  }, [docWidth, minWidth, maxWidth, designWidth]);
 
   // 激活iOS上的:active伪类逻辑
   useEffect(() => {

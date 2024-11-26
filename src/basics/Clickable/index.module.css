@@ -1,6 +1,6 @@
 .container {
   opacity: 1;
-  /* transition: opacity 20ms linear; */
+  transition: opacity 20ms linear;
   user-select: none;
   &:active {
     opacity: 0.6;

@@ -17,16 +17,16 @@ const __local = {
  *
  * 也支持完整URL:
  *  http://example.com/a/b/c => http://example.com/a/b/c
- * 
+ *
  * 所有的映射全部配置在.env环境变量中，不同的环境各自配置，
  * 且配置项格式固定，统一大写 VITE_HOST_${ALIAS}，如：
- * 
- *  VITE_HOST_DEFAULT="http://default.com"  
+ *
+ *  VITE_HOST_DEFAULT="http://default.com"
  *    /a/b/c => http://default.com/a/b/c
- * 
+ *
  *  VITE_HOST_XUECHE="http://xueche.com"
  *    xueche@/a/b/c => http://xueche.com/a/b/c
- *  
+ *
  * @param shortUrl
  * @param seperator
  * @returns
@@ -208,12 +208,12 @@ export async function request<T = Result>(
  * @param option
  * @returns
  */
-export async function get(
+export async function get<T = Result>(
   shortUrl: string,
   data?: Payload,
   option?: Omit<RequestOption, "method">
 ) {
-  return request(shortUrl, data, { ...option, method: "GET" });
+  return request<T>(shortUrl, data, { ...option, method: "GET" });
 }
 
 /**
@@ -223,12 +223,12 @@ export async function get(
  * @param option
  * @returns
  */
-export async function post(
+export async function post<T = Result>(
   shortUrl: string,
   data?: Payload,
   option?: Omit<RequestOption, "method">
 ) {
-  return request(shortUrl, data, { ...option, method: "POST" });
+  return request<T>(shortUrl, data, { ...option, method: "POST" });
 }
 
 /**
@@ -238,12 +238,12 @@ export async function post(
  * @param option
  * @returns
  */
-export async function json(
+export async function json<T = Result>(
   shortUrl: string,
   data?: Payload,
   option?: Omit<RequestOption, "method" | "bodyAsJson">
 ) {
-  return request(shortUrl, data, {
+  return request<T>(shortUrl, data, {
     ...option,
     method: "POST",
     bodyAsJson: true,
@@ -255,7 +255,7 @@ export async function json(
  * @param shortUrl
  * @param callbackName 服务端将会返回执行的回调函数名称
  */
-export async function jsonp<T = any>(
+export async function jsonp<T = Result>(
   shortUrl: string,
   callbackName: string = "callback"
 ): Promise<T> {

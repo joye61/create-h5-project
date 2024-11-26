@@ -7,7 +7,7 @@
 export default async function () {
   console.log("默认导出函数被执行");
   await new Promise<void>((resolve) => {
-    window.setTimeout(resolve, 2000);
+    window.setTimeout(resolve, 1000);
   });
 }
 

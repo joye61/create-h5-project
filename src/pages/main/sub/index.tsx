@@ -1,3 +1,3 @@
 export default () => {
-  return "/main/sub 页面被加载";
+  return "/main/sub 页面默认导出被加载";
 };

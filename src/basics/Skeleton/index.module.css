@@ -1,0 +1,41 @@
+@keyframes SkeletonLoading {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+.container {
+  padding: calc(var(--unit) * 30);
+  > div {
+    height: calc(var(--unit) * 30);
+    margin-bottom: calc(var(--unit) * 20);
+    border-radius: calc(var(--unit) * 10);
+    background: linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.06) 25%,
+      rgba(0, 0, 0, 0.15) 37%,
+      rgba(0, 0, 0, 0.06) 63%
+    );
+    background-size: 400% 100%;
+    animation-name: SkeletonLoading;
+    animation-duration: 1.4s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+  }
+
+  > div:nth-child(1) {
+    width: 40%;
+  }
+  > div:nth-child(2) {
+    width: 75%;
+  }
+  > div:nth-child(3) {
+    width: 100%;
+  }
+  > div:nth-child(4) {
+    width: 50%;
+  }
+}

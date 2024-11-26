@@ -11,17 +11,6 @@
   box-sizing: border-box;
 }
 
-html {
-  -webkit-text-size-adjust: none;
-  text-size-adjust: none;
-  touch-action: manipulation;
-}
-
-body {
-  font-size: initial;
-  margin: 0;
-}
-
 a,
 button {
   cursor: revert;

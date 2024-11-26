@@ -21,7 +21,7 @@ export interface MarqueeProps extends React.HTMLProps<HTMLDivElement> {
  */
 export function Marquee(props: MarqueeProps) {
   const {
-    height = 40,
+    height,
     items,
     renderItem,
     interval = 4000,
@@ -30,10 +30,16 @@ export function Marquee(props: MarqueeProps) {
     ...extra
   } = props;
 
-  let finalStyle: React.CSSProperties = {
-    height: normalizeCssUnit(height),
-    ...(style ?? {}),
-  };
+  let finalStyle: React.CSSProperties = {};
+  if (height) {
+    finalStyle.height = normalizeCssUnit(height);
+  }
+  if (style && typeof style === "object") {
+    finalStyle = {
+      ...style,
+      ...finalStyle,
+    };
+  }
 
   const [content, setContent] = useState<React.ReactNode>(null);
   const containerRef = useRef<HTMLDivElement>(null);

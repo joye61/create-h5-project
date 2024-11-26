@@ -71,10 +71,10 @@
   text-overflow: ellipsis;
   overflow: hidden;
   line-height: 1;
-  font-size: 14px;
+  font-size: calc(var(--unit) * 24);
   padding: 1em;
   max-width: 80%;
-  border-radius: 0.5em;
+  border-radius: calc(var(--unit) * 15);
 }
 .top {
   top: 50px;
