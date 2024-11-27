@@ -28,11 +28,11 @@ if (useTs) {
 const root = path.resolve(cwd, name);
 
 function filter(useTs) {
+  const exclude = [
+    path.resolve(useTs ? tsdir : jsdir, "node_modules"),
+    path.resolve(useTs ? tsdir : jsdir, "package-lock.json"),
+  ];
   return (src, dest) => {
-    const exclude = [
-      path.resolve(useTs ? tsdir : jsdir, "node_modules"),
-      path.resolve(useTs ? tsdir : jsdir, "package-lock.json"),
-    ];
     const result = !exclude.includes(src);
     if (result) {
       console.log(`已创建：${dest}`);
