@@ -1,0 +1,106 @@
+@keyframes TopShowAnimation {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+@keyframes TopHideAnimation {
+  from {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%);
+  }
+}
+@keyframes MiddleShowAnimation {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+@keyframes MiddleHideAnimation {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.9);
+  }
+}
+@keyframes BottomShowAnimation {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 50%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+@keyframes BottomHideAnimation {
+  from {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, 50%);
+  }
+}
+
+.container {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  margin: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  line-height: 1;
+  font-size: calc(var(--unit) * 24);
+  padding: 1em;
+  max-width: 80%;
+  border-radius: calc(var(--unit) * 15);
+}
+.top {
+  top: 50px;
+}
+.topShow {
+  animation: TopShowAnimation 300ms ease;
+}
+.topHide {
+  animation: TopHideAnimation 300ms ease forwards;
+}
+.middle {
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.middleShow {
+  animation: MiddleShowAnimation 300ms ease;
+}
+.middleHide {
+  animation: MiddleHideAnimation 300ms ease forwards;
+}
+.bottom {
+  bottom: 50px;
+}
+.bottomShow {
+  animation: BottomShowAnimation 300ms ease;
+}
+.bottomHide {
+  animation: BottomHideAnimation 300ms ease forwards;
+}

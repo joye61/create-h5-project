@@ -29,7 +29,7 @@ export interface CreateAppOption extends ContainerProps {
  * 创建H5 APP，默认用<Container>包裹页面
  * @param option
  */
-export async function createApp(option?: CreateAppOption) {
+export function createApp(option?: CreateAppOption) {
   option = option ?? {};
   const defaultConfig: Partial<CreateAppOption> = {
     entry: "/home",

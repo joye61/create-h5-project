@@ -1,0 +1,8 @@
+.top {
+  height: constant(safe-area-inset-top, 0);
+  height: env(safe-area-inset-top, 0);
+}
+.bottom {
+  height: constant(safe-area-inset-bottom, 0);
+  height: env(safe-area-inset-bottom, 0);
+}

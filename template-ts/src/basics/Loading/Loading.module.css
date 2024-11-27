@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  p {
+    color: #666;
+    font-size: calc(var(--unit) * 24);
+    line-height: 1;
+    margin-top: calc(var(--unit) * 20);
+    white-space: nowrap;
+    max-width: calc(var(--unit) * 600);
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

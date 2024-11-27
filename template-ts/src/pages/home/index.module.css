@@ -1,0 +1,17 @@
+.btn {
+  width: 150px;
+  height: 40px;
+  background-color: #000;
+  color: #fff;
+}
+
+.dialog {
+  width: 200px;
+  height: 200px;
+  background-color: #fff;
+}
+
+.scrollview {
+  height: 200px;
+  /* background-color: #f0f0f0; */
+}
