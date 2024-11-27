@@ -6,10 +6,10 @@
 
 ```bash
 # 创建一个JS模板
-npm create h5-template [你的项目名]
+npm create h5-project [你的项目名]
 
 # 创建一个TS模板
-npm create h5-template [你的项目名] --useTs
+npm create h5-project [你的项目名] --useTs
 ```
 
 ## 初始化
