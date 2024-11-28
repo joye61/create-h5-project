@@ -4,9 +4,13 @@ import classNames from "classnames";
 import { useEffect, useState } from "react";
 
 export interface DialogProps extends React.HTMLProps<HTMLDivElement> {
+  // 用于通过属性控制Dialog是隐藏还是显示，自带动画效果
   open?: boolean;
+  // 弹框的位置，不同的位置动画效果不一样，默认为屏幕居中
   position?: "top" | "middle" | "bottom";
+  // 透明蒙层是否可以点击
   maskClosable?: boolean;
+  // 弹框被彻底关闭（关闭动画结束）时执行的回调
   onClose?: () => void;
 }
 

@@ -2,7 +2,9 @@ import style from "./Indicator.module.css";
 import classNames from "classnames";
 
 export interface IndicatorProps {
+  // 菊花的颜色，默认只支持黑白色
   color?: "white" | "black";
+  // 菊花的大小
   size?: "big" | "small";
 }
 

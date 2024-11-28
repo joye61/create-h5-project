@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import { useInterval, useWindowResize } from "../hooks";
 
 export interface MarqueeProps extends React.HTMLProps<HTMLDivElement> {
+  // 容器的高度，如果未设置，则默认为父容器的高度
   height?: number | string;
   // 滚动列表，一般出入一个文字数组
   items: React.ReactNode[];
