@@ -1,13 +1,15 @@
 {
   "name": "create-h5-project",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "description": "Create h5 template with react + vite",
   "type": "module",
   "scripts": {
     "jsver": "node ./jsver.js",
     "pub": "npm run jsver && npm publish"
   },
-  "bin": "./index.js",
+  "bin": {
+    "create-h5-project": "index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/joye61/create-h5-project.git"
@@ -20,6 +22,15 @@
     "react",
     "h5",
     "template"
+  ],
+  "files": [
+    "template-js",
+    "template-ts",
+    "template-js/.gitignore",
+    "template-ts/.gitignore",
+    "index.js",
+    "jsver.js",
+    "tsconfig.json"
   ],
   "author": "Joye",
   "license": "MIT",
