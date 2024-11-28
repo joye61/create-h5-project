@@ -32,7 +32,7 @@ const __local = {
  * @returns
  */
 export function getUrl(shortUrl: string, seperator = "@"): URL {
-  let url: string | undefined = shortUrl;
+  let url: string = shortUrl;
   if (!/^(https?\:)?\/\//.test(url)) {
     let alias = "default";
     let pathname = "";
@@ -45,17 +45,19 @@ export function getUrl(shortUrl: string, seperator = "@"): URL {
       pathname = normalize(parts.join(seperator));
     }
 
-    url = import.meta.env[`VITE_HOST_${alias.toUpperCase()}`];
+    let origin: string | undefined = import.meta.env[
+      `VITE_HOST_${alias.toUpperCase()}`
+    ];
 
-    // 没有找到host，则取当前页面的
-    if (!url) {
-      url = window.location.origin;
+    // 没有找到origin，则取当前页面的
+    if (!origin) {
+      origin = window.location.origin;
     }
 
     // 拼接路径到url中
-    url = url.replace(/\/*$/, "");
+    origin = origin.replace(/\/*$/, "");
     if (pathname) {
-      url += "/" + pathname;
+      url = origin + "/" + pathname;
     }
   }
 

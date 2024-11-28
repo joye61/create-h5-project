@@ -1,6 +1,6 @@
 {
   "name": "create-h5-project",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Create h5 template with react + vite",
   "type": "module",
   "scripts": {

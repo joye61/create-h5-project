@@ -39,15 +39,15 @@ export function getUrl(shortUrl, seperator = "@") {
             parts.shift();
             pathname = normalize(parts.join(seperator));
         }
-        url = import.meta.env[`VITE_HOST_${alias.toUpperCase()}`];
-        // 没有找到host，则取当前页面的
-        if (!url) {
-            url = window.location.origin;
+        let origin = import.meta.env[`VITE_HOST_${alias.toUpperCase()}`];
+        // 没有找到origin，则取当前页面的
+        if (!origin) {
+            origin = window.location.origin;
         }
         // 拼接路径到url中
-        url = url.replace(/\/*$/, "");
+        origin = origin.replace(/\/*$/, "");
         if (pathname) {
-            url += "/" + pathname;
+            url = origin + "/" + pathname;
         }
     }
     // 如果配置的host以 // 开头，则用当前页面的protocol补全

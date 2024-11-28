@@ -43,7 +43,7 @@ export function is(
 }
 
 /**
- * 生成全局唯一id
+ * 生成全局唯一id，只在本次SESSION中有效
  * @returns
  */
 export function uniqid() {

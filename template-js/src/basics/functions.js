@@ -32,7 +32,7 @@ export function is(env // 可触摸环境
     }
 }
 /**
- * 生成全局唯一id
+ * 生成全局唯一id，只在本次SESSION中有效
  * @returns
  */
 export function uniqid() {
