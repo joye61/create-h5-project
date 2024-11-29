@@ -46,7 +46,7 @@ export function getUrl(shortUrl: string, seperator = "@"): URL {
     }
 
     let origin: string | undefined = import.meta.env[
-      `VITE_HOST_${alias.toUpperCase()}`
+      `VITE_ORIGIN_${alias.toUpperCase()}`
     ];
 
     // 没有找到origin，则取当前页面的
@@ -61,9 +61,16 @@ export function getUrl(shortUrl: string, seperator = "@"): URL {
     }
   }
 
-  // 如果配置的host以 // 开头，则用当前页面的protocol补全
+  // 如果是正常的URL开头，直接返回
+  if (/^https?\:/.test(url)) {
+    return new URL(url);
+  }
+
+  // protocol 丢失补全
   if (url.startsWith("//")) {
     url = window.location.protocol + url;
+  } else {
+    url = window.location.protocol + "//" + url;
   }
 
   return new URL(url);

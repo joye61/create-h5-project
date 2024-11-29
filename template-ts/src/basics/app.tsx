@@ -46,8 +46,8 @@ export function createApp(option?: CreateAppOption) {
   setHistory(option.mode);
 
   const modules = import.meta.glob([
-    "src/pages/**/index.{ts,tsx}",
-    "src/pages/**/data.{ts,tsx}",
+    "@/pages/**/index.{ts,tsx}",
+    "@/pages/**/data.{ts,tsx}",
   ]);
 
   const App: React.FC = () => {

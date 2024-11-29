@@ -23,8 +23,8 @@ export function createApp(option) {
     // 确保history对象的正确性
     setHistory(option.mode);
     const modules = import.meta.glob([
-        "src/pages/**/index.{js,jsx}",
-        "src/pages/**/data.{js,jsx}",
+        "@/pages/**/index.{js,jsx}",
+        "@/pages/**/data.{js,jsx}",
     ]);
     const App = () => {
         const [page, setPage] = useState(null);
