@@ -150,7 +150,15 @@ export function createApp(option?: CreateAppOption) {
       preparePage(history.location.pathname);
     }, [preparePage]);
 
-    return <Container designWidth={option.designWidth}>{page}</Container>;
+    return (
+      <Container
+        designWidth={option.designWidth}
+        maxWidth={option.maxWidth}
+        minWidth={option.minWidth}
+      >
+        {page}
+      </Container>
+    );
   };
 
   // 获取挂载对象

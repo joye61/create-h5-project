@@ -114,7 +114,9 @@ export function createApp(option) {
             history.listen(({ location }) => preparePage(location.pathname));
             preparePage(history.location.pathname);
         }, [preparePage]);
-        return <Container designWidth={option.designWidth}>{page}</Container>;
+        return (<Container designWidth={option.designWidth} maxWidth={option.maxWidth} minWidth={option.minWidth}>
+        {page}
+      </Container>);
     };
     // 获取挂载对象
     let mount = null;
