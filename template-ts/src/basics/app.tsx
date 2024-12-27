@@ -60,10 +60,26 @@ export function createApp(option?: CreateAppOption) {
       let basepath = import.meta.env.BASE_URL ?? "";
       basepath = normalize(basepath);
       pathname = normalize(pathname);
-      // 如果带有前缀，首先移除前缀
-      if (pathname && basepath && pathname.startsWith(basepath)) {
-        pathname = pathname.substring(basepath.length);
+
+      const show404 = async () => {
+        // 流程走到这里还没有找到页面，则渲染404
+        if (typeof option.render404 === "function") {
+          const result404 = await option.render404();
+          setPage(result404);
+        } else {
+          setPage("页面不存在");
+        }
+      };
+
+      // 页面路径必须带有基础前缀，如果没有，则非法路径，认为404
+      if (pathname !== basepath && !pathname.startsWith(basepath + "/")) {
+        await show404();
+        return;
       }
+
+      // 过滤掉基础前缀之后继续移除反斜杠
+      pathname = pathname.substring(basepath.length);
+      pathname = normalize(pathname);
 
       // 如果pathname为空，则显示默认路由
       if (!pathname) {
@@ -126,12 +142,7 @@ export function createApp(option?: CreateAppOption) {
       }
 
       // 流程走到这里还没有找到页面，则渲染404
-      if (typeof option.render404 === "function") {
-        const result404 = await option.render404();
-        setPage(result404);
-      } else {
-        setPage("页面不存在");
-      }
+      await show404();
     }, []);
 
     useEffect(() => {
